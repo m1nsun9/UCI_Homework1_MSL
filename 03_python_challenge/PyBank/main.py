@@ -5,7 +5,7 @@ import csv
 csv_path = os.path.join('Resources', 'budget_data.csv')
 
 # Read in the CSV file
-with open(csv_path) as csv_file:
+with open(csv_path, 'r+') as csv_file:
     # Split the data on commas and save to variable
     csv_reader = csv.reader(csv_file, delimiter=',')
 
@@ -42,10 +42,21 @@ with open(csv_path) as csv_file:
     # The average of the changes in 'Profits/Losses' over the entire period
     average_change_pnl = "{:.2f}".format(net_total_pnl/total_months)
 
-    print(f"Financial Analysis")
-    print(f"----------------------------")
-    print(f"Total Months: {total_months}")
-    print(f"Total: ${net_total_pnl}")
-    print(f"Average Change: ${average_change_pnl}")
-    print(f"Greatest Increase in Profits: {greatest_increase_date} (${greatest_increase})")
-    print(f"Greatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease})")
+    # create a variable with the all the output information
+    output = [
+        f"Financial Analysis",
+        f"----------------------------",
+        f"Total Months: {total_months}",
+        f"Total: ${net_total_pnl}",
+        f"Average Change: ${average_change_pnl}",
+        f"Greatest Increase in Profits: {greatest_increase_date} (${greatest_increase})",
+        f"Greatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease})"
+    ]
+
+    # create a text file with the output 
+    output_path = os.path.join('..', 'Analysis', 'output.txt')
+    output_text = open(output_path, 'w')
+    
+    for i in range(len(output)):
+        print(output[i])
+        output_text.write(output[i] + '\n')
