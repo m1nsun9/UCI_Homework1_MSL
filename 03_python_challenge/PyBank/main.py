@@ -54,9 +54,12 @@ with open(csv_path, 'r+') as csv_file:
     ]
 
     # create a text file with the output 
-    output_path = os.path.join('..', 'Analysis', 'output.txt')
+    output_path = os.path.join('Analysis', 'output.txt')
     output_text = open(output_path, 'w')
     
     for i in range(len(output)):
         print(output[i])
         output_text.write(output[i] + '\n')
+
+    output_text.close()
+
