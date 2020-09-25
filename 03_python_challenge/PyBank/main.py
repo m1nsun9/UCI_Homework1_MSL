@@ -4,7 +4,7 @@ import csv
 # create a path to a file called 'budget_data.csv'
 csv_path = os.path.join('Resources', 'budget_data.csv')
 
-# Read in the CSV file
+# Read and write in the CSV file
 with open(csv_path, 'r+') as csv_file:
     # Split the data on commas and save to variable
     csv_reader = csv.reader(csv_file, delimiter=',')
@@ -54,12 +54,13 @@ with open(csv_path, 'r+') as csv_file:
     ]
 
     # create a text file with the output 
-    output_path = os.path.join('Analysis', 'output.txt')
-    output_text = open(output_path, 'w')
+    analysis_path = os.path.join('Analysis', 'output.txt')
+    analysis_text = open(analysis_path, 'w')
     
+    # write and print final information in the output text file 
     for i in range(len(output)):
         print(output[i])
-        output_text.write(output[i] + '\n')
+        analysis_text.write(output[i] + '\n')
 
-    output_text.close()
+    analysis_text.close()
 
