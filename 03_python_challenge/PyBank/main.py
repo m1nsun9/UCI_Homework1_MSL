@@ -12,7 +12,7 @@ with open(csv_path, 'r+') as csv_file:
     # Skip the header, which has column labels
     csv_header = next(csv_file)
 
-    total_months = 0
+    months = []
     net_total_pnl = 0
     average_change_pnl = 0
     greatest_increase = 0
@@ -20,33 +20,44 @@ with open(csv_path, 'r+') as csv_file:
     greatest_decrease = 0
     greatest_decrease_date = ''
 
+    last_profit = 0
+    current_profit = 0
+    net_changes = []
+
     # Record the following:
     for row in csv_reader:
 
         # The total number of months included in the dataset
-        total_months += 1
+        months.append(row[0])
 
         # The net total amount of 'Profits/Losses' over the entire period
         net_total_pnl += int(row[1])
-        
-        # The greatest increase in profits (date and amount) over the entire period
-        if int(row[1]) > greatest_increase:
-            greatest_increase = int(row[1])
-            greatest_increase_date = row[0]
 
-        # The greatest decrease in losses (date and amount) over the entire period
-        if int(row[1]) < greatest_decrease:
-            greatest_decrease = int(row[1])
-            greatest_decrease_date = row[0]
+        # calculate the average changes in Profits/Losses for each month and append to net_changes list
+        current_profit = int(row[1])
+        net_changes.append(int(current_profit - last_profit))
+
+        last_profit = int(row[1])
+    
+    # get rid of the first item, which is not a difference of profits/losses between two months
+    net_changes.pop(0)
+
+    # The greatest increase in profits (date and amount) over the entire period
+    greatest_increase = max(net_changes)
+    greatest_increase_date = months[net_changes.index(greatest_increase)]
+
+    # The greatest decrease in losses (date and amount) over the entire period
+    greatest_decrease = min(net_changes)
+    greatest_decrease_date = months[net_changes.index(greatest_decrease)]
     
     # The average of the changes in 'Profits/Losses' over the entire period
-    average_change_pnl = "{:.2f}".format(net_total_pnl/total_months)
+    average_change_pnl = "{:.2f}".format(sum(net_changes)/len(net_changes))
 
     # create a variable with the all the output information
     output = [
         f"Financial Analysis",
         f"----------------------------",
-        f"Total Months: {total_months}",
+        f"Total Months: {len(months)}",
         f"Total: ${net_total_pnl}",
         f"Average Change: ${average_change_pnl}",
         f"Greatest Increase in Profits: {greatest_increase_date} (${greatest_increase})",
@@ -63,4 +74,3 @@ with open(csv_path, 'r+') as csv_file:
         analysis_text.write(output[i] + '\n')
 
     analysis_text.close()
-
