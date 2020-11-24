@@ -1,0 +1,305 @@
+/* Navbar */
+body {
+    padding: 0px;
+}
+
+.navbar {
+    padding-top: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 0px;
+    background-color: rgb(248, 249, 250);
+}
+
+.navbar-brand {
+    background-color: lightskyblue;
+    box-sizing: content-box;
+    width: 10%;
+    text-align: center;
+    font-size: 1.5vw;
+    font-family: 'Courier New', Courier, monospace;
+    float: left;
+    font-weight: 500;
+    padding: none;
+}
+
+.collapse {
+    font-size: 100%;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 500;
+}
+
+/* Body */
+body {
+    background-color: lightgray;
+}
+
+/* Content Boxes */
+
+.summary {
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-bottom: 2%;
+    background-color: rgb(248, 249, 250);
+    height: 800px;
+    width: 62%;
+    position: relative;
+    float: left;
+}
+
+#title {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2.5vw;
+    font-weight: 500;
+    color:lightskyblue;
+    text-align: left;
+    margin-left: 5%;
+    padding-top: 40px;
+}
+
+.visualizations {
+    margin-top: 2%;
+    margin-right: 2%;
+    background-color: rgb(248, 249, 250);
+    height: 450px;
+    width: 32%;
+    float: right;
+}
+
+#vis-title {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2vw;
+    font-weight: 500;
+    color:lightskyblue;
+    text-align: left;
+    margin-left: 5%;
+    padding-top: 40px;
+    width: 50%;
+}
+
+hr {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#summary-img {
+    width: 50%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    position: relative;
+    float: left;
+}
+
+p {
+    margin: 5%;
+}
+
+#img1 {
+    width: 95%;
+    position: relative;
+    padding-left: 4%;
+    float: left;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+#img2 {
+    width: 95%;
+    position: relative;
+    padding-right: 4%;
+    float: right;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+#img3 {
+    width: 95%;
+    position: relative;
+    padding-left: 4%;
+    float: left;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+#img4 {
+    width: 95%;
+    position: relative;
+    float: right;
+    padding-right: 4%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.container1 {
+    float: left;
+    position: relative;
+    width: 48%;
+    margin: 1%;
+}
+
+.container2 {
+    float: right;
+    position: relative;
+    width: 48%;
+    margin: 1%;
+}
+
+.container3 {
+    float: left;
+    width: 48%;
+    margin: 1%;
+}
+
+.container4 {
+    float: right;
+    width: 48%;
+    margin: 1%;
+}
+
+#maxtemp-img {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    position: relative;
+}
+
+#humidity-img {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    position: relative;
+}
+
+.maxtemp {
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-bottom: 2%;
+    background-color: rgb(248, 249, 250);
+    height: 900px;
+    width: 62%;
+    position: relative;
+    float: left;
+}
+
+.container:hover {
+    background-color: lightskyblue;
+}
+
+a:hover {
+    background-color: lightskyblue;  
+}
+
+@media (max-width: 991px) {
+    .navbar {
+        background-color: lightskyblue!important;
+    }
+
+    .navbar-toggler {
+        background-color: rgb(248, 249, 250)!important;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .navbar-brand {
+        font-size: 100%;
+    }
+
+    #navbarDropdown {
+        padding-left: 0px;
+    }
+
+    .navbar-expand-lg {
+        padding-left: 10px;
+    }
+
+    #vis-title {
+        font-size: 3vw;
+        margin-left: 10%;
+    }
+
+    #title {
+        font-size: 3.5vw;
+        padding-left: 5%;
+    }
+
+    .container {
+        width: 25%;
+    }
+
+    body {
+        background-color: rgb(248, 249, 250);
+    }
+
+    .summary {
+        width: 100%;
+        height: 600px;
+    }
+
+    .maxtemp {
+        width: 100%;
+        height: 800px;
+        text-align: justify;
+        float: right;
+    }
+
+    .analysis {
+        margin-left: 15%;
+    }
+
+    #maxtemp-img {
+        margin-left: 10%;
+    }
+
+    hr {
+        margin-right: 8%;
+        margin-left: 8%;
+    }
+
+    p {
+        padding-right: 10%;
+    }
+
+    .visualizations {
+        width: 100%;
+        padding-left: 5%;
+    }
+
+    .container1 {
+        float: left;
+        position: relative;
+        width: 48%;
+        margin: 1%;
+    }
+    
+    .container2 {
+        float: right;
+        position: relative;
+        width: 48%;
+        margin: 1%;
+    }
+    
+    .container3 {
+        float: left;
+        width: 48%;
+        margin: 1%;
+        margin-bottom: 5%;
+    }
+    
+    .container4 {
+        float: right;
+        width: 48%;
+        margin: 1%;
+        margin-bottom: 5%;
+    }
+
+
+}
+
+/* make smaller screen version */
+/* try to add bootstrap containers, columns, and rows */
