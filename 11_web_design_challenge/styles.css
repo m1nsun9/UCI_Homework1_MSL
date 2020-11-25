@@ -5,7 +5,7 @@ body {
 
 .navbar {
     padding-top: 0px;
-    padding-left: 10px;
+    padding-left: 0px;
     padding-right: 10px;
     padding-bottom: 0px;
     background-color: rgb(248, 249, 250);
@@ -13,19 +13,26 @@ body {
 
 .navbar-brand {
     background-color: lightskyblue;
-    box-sizing: content-box;
     width: 10%;
     text-align: center;
-    font-size: 1.5vw;
-    font-family: 'Courier New', Courier, monospace;
+    font-size: 100%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     float: left;
     font-weight: 500;
-    padding: none;
+    height: 100%;
+}
+
+nav {
+    padding-left: 0px 0px;
+}
+
+.nav-link {
+    padding-top: 5px;
 }
 
 .collapse {
-    font-size: 100%;
-    font-family: 'Courier New', Courier, monospace;
+    font-size: 80%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 500;
 }
 
@@ -48,7 +55,7 @@ body {
 }
 
 #title {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 2.5vw;
     font-weight: 500;
     color:lightskyblue;
@@ -75,6 +82,17 @@ body {
     margin-bottom: 2%;
 }
 
+.active:hover {
+    background-color: rgb(242,242,242);
+}
+
+.dropdown-toggle:active {
+    background-color: rgb(242,242,242);
+}
+
+.dropdown-item {
+    float:right;
+}
 .maxtemp {
     float: left;
 }
@@ -92,7 +110,7 @@ body {
 }
 
 #vis-title {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 2vw;
     font-weight: 500;
     color:lightskyblue;
@@ -191,7 +209,7 @@ p {
 .captions {
     text-align: center;
     color: lightskyblue;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 2vw;
     font-weight: 500;
     color:lightskyblue;
@@ -285,9 +303,60 @@ p {
     visibility: hidden;
 }
 
+.data-text {
+    margin-left: 5%;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    font-size: 1.5vw;
+}
+
+#data-title {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.5vw;
+    font-weight: 500;
+    color:lightskyblue;
+    text-align: left;
+    margin-left: 5%;
+    padding-top: 40px;
+}
+
+.data-box {
+    margin-top: 2%;
+    margin-left: 2%;
+    background-color: rgb(248, 249, 250);
+    height: 100%;
+    width: 96%;
+    margin-bottom: 2%;
+}
+
+.dataframe {
+    margin-left: 5%;
+    margin-top: 3%;
+    padding-bottom: 2%;
+    padding-right: 5%;
+    margin-bottom: 2%;
+    width: 90%;
+    border: none;
+    border-bottom: lightslategray;
+}
+
+.dataframe tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+th {
+    margin-right: 1%;
+}
+
+table th {
+    padding: 0px 3% 0px 3px;
+}
+
+
 @media (max-width: 991px) {
     .navbar {
         background-color: lightskyblue!important;
+        width: 100%;
     }
 
     .navbar-toggler {
@@ -423,5 +492,28 @@ p {
 
     .img-hover:hover {
         filter: opacity(50%);
+    }
+
+    #data-title {
+        margin-left: 1%;
+        font-size: 5vw;
+    }
+
+    #hr-data {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .data-text {
+        margin-left: 1%;
+        margin-right: 1%;
+        padding-right: 0%;
+        font-size: 2.5vw;
+    }
+
+    .dataframe {
+        margin-left: 1%;
+        margin-right: 1%;
+        width: 98%;
     }
 }
