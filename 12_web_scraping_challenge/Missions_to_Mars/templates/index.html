@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mission to Mars</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- styling -->
+    <style>
+      tr:nth-child(odd) {
+        background-color: #f2f2f2;
+      }
+
+      tr:nth-child(even) {
+        background-color: #c2c2c2;
+      }
+
+      hr {
+        color: rgb(94, 95, 95);
+      }
+
+      a:hover {
+        opacity: 75%;
+      }
+
+      .img-boxes:nth-child(even) {
+        float: left;
+        margin-left: 7%;
+      }
+
+      .img-boxes:nth-child(odd) {
+        float: right;
+        margin-right: 7%;
+      }
+
+      @media (max-width: 991px) {
+        .img-boxes {
+          margin-left: 0%!important;
+          margin-right: 0%!important;
+        }
+      }
+
+    </style>
+  
+  </head>
+
+  <body style="background-image: url(https://sm.mashable.com/mashable_in/photo/default/nasa-galaxy_9pu4.jpg);">
+    <div class="container">
+
+      <div class="jumbotron text-center" style="background-image: url(https://www.myepl.org/wp-content/uploads/2018/11/mars-planet-surface-with-dust-blowing_rtsmo0wm__F0000.png); background-size: cover;">
+        <h1 style="color: black">Mission to Mars</h1>
+        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button" style="background-color: black; color: rgb(214, 224, 224); border: none">Scrape New Data</a></p>
+      </div>
+
+      <!-- Mars Data -->
+      <div class="row" id="mars-news">
+        <div class="col-md-12">
+          <h1 class="heading" style="color: rgb(214, 224, 224);">Latest Mars News</h1>
+          <h4 class="heading" style="color: rgb(214, 224, 224); padding-top: 1%">{{mars_data.news_title}}</h4>
+          <p style="float: left; color: rgb(214, 224, 224);">{{mars_data.news_p}}</p>
+        </div>
+      </div>
+
+      <div class='row' id='featured-img-and-facts'>
+        <hr style="padding-top: 1%">
+        <div class="col-md-8">
+          <h1 style="color: rgb(214, 224, 224);">Featured Mars Image</h1>
+          <br>
+          <img src="{{mars_data.featured_image_url}}" height="100%", width="100%">
+        </div>
+
+        <div class="col-md-4" style="padding-top: 1.5%">
+          <h3 style="color: rgb(214, 224, 224);">Mars Facts</h3>
+          <br>
+          <table border="1" class="dataframe" style="border: none; border-bottom: lightslategray; border-spacing: 5px 5px 5px 5px; width: 100%; height: 400px;">
+            <thead>
+              <tr style="text-align: right">
+                <th></th>
+                <th>Mars</th>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Equatorial Diameter:</th>
+                <td>6,792 km</td>
+              </tr>
+              <tr>
+                <th>Polar Diameter:</th>
+                <td>6,752 km</td>
+              </tr>
+              <tr>
+                <th>Mass:</th>
+                <td>6.39 × 10^23 kg (0.11 Earths)</td>
+              </tr>
+              <tr>
+                <th>Moons:</th>
+                <td>2 (Phobos &amp; Deimos)</td>
+              </tr>
+              <tr>
+                <th>Orbit Distance:</th>
+                <td>227,943,824 km (1.38 AU)</td>
+              </tr>
+              <tr>
+                <th>Orbit Period:</th>
+                <td>687 days (1.9 years)</td>
+              </tr>
+              <tr>
+                <th>Surface Temperature:</th>
+                <td>-87 to -5 °C</td>
+              </tr>
+              <tr>
+                <th>First Record:</th>
+                <td>2nd millennium BC</td>
+              </tr>
+              <tr>
+                <th>Recorded By:</th>
+                <td>Egyptian astronomers</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <br>
+
+      <div class="row" id="mars-hemispheres-header">
+        <div class="col-md-12" style="text-align: center">
+          <h2 style="color: rgb(214, 224, 224);">Mars Hemispheres</h2>
+          <hr>
+        </div>
+      </div>
+      
+      <div class="row">
+        {% for hemisphere in mars_data.hemispheres %}
+        <div class="col-md-5 img-boxes" style="margin-top: 1%; margin-bottom: 1%; border: solid 0.5px lightslategray"> 
+          <img src="{{hemisphere.image_url}}" width="100%", height="100%" style="padding-top: 2%;">
+          <h3 style="text-align: center; color: rgb(214, 224, 224);">{{hemisphere.title}}</h3>
+        </div>
+        {% endfor %}
+      </div>
+      <br>
+
+    </div>
+  </body>
+</html>
+
