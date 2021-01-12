@@ -78,7 +78,7 @@ function renderCircles(circlesGroup, newXScale, newYScale, chosenXAxis, chosenYA
 };
 
 // function for updating positions of state abbreviation text
-function renderText(textGroup, newXScale, newYScale, chosenYAxis, chosenXAxis) {
+function renderText(textGroup, newXScale, newYScale, chosenXAxis, chosenYAxis) {
     textGroup.transition()
         .duration(1000)
         .attr("x", d => newXScale(d[chosenXAxis]))
@@ -122,8 +122,10 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
 
     circlesGroup.on("mouseover", function(data) {
         toolTip.show(data, this);
+        d3.select(this).style("stroke", "black");
     }).on("mouseout", function(data, index) {
         toolTip.hide(data, this);
+        d3.select(this).style("stroke", "none");
     });
     
     return circlesGroup;
@@ -260,15 +262,12 @@ d3.csv('assets/data/data.csv').then((newsData, err) => {
                 xAxis = renderXAxis(xLinearScale, xAxis);
 
                 // updates circles with new x values
-                circlesGroup = renderCircles(circlesGroup, xLinearScale, yLinearScale, 
-                                            chosenXAxis, chosenYAxis);
+                circlesGroup = renderCircles(circlesGroup, xLinearScale, yLinearScale, chosenXAxis, chosenYAxis);
                 
                 // move text position
-                textGroup = renderText(textGroup, xLinearScale, yLinearScale, 
-                    chosenXAxis, chosenYAxis);
-                
-                // updates tooltips with new info
-                circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
+                textGroup = renderText(textGroup, xLinearScale, yLinearScale, chosenXAxis, chosenYAxis);
+
+                console.log(textGroup);
 
                 if (chosenXAxis === "poverty") {
                     povertyLabel.classed("active", true)
@@ -294,6 +293,8 @@ d3.csv('assets/data/data.csv').then((newsData, err) => {
                     incomeLabel.classed("active", true)
                             .classed("inactive", false);
                 };
+                // updates tooltips with new info
+                circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
             };
     });
 
@@ -313,14 +314,9 @@ d3.csv('assets/data/data.csv').then((newsData, err) => {
                 yAxis = renderYAxis(yLinearScale, yAxis);
 
                 // updates circles with new y values
-                circlesGroup = renderCircles(circlesGroup, xLinearScale, yLinearScale, 
-                                            chosenXAxis, chosenYAxis);
+                circlesGroup = renderCircles(circlesGroup, xLinearScale, yLinearScale, chosenXAxis, chosenYAxis);
                 
-                textGroup = renderText(textGroup, xLinearScale, yLinearScale, 
-                                            chosenXAxis, chosenYAxis);
-                
-                // updates tooltips with new info
-                circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
+                textGroup = renderText(textGroup, xLinearScale, yLinearScale, chosenXAxis, chosenYAxis);
 
                 if (chosenYAxis === "obesity") {
                     obesityLabel.classed("active", true)
@@ -346,6 +342,8 @@ d3.csv('assets/data/data.csv').then((newsData, err) => {
                     healthcareLabel.classed("active", true)
                             .classed("inactive", false);
                 };
+                // updates tooltips with new info
+                circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
             };
     });
 
